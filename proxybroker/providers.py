@@ -5,6 +5,7 @@ from base64 import b64decode
 from html import unescape
 from math import sqrt
 from urllib.parse import unquote, urlparse
+import json
 
 import aiohttp
 
@@ -627,6 +628,24 @@ class Proxyb_net(Provider):
             for p in range(0, 151)
         ]
         await self._find_on_pages(urls)
+    
+class FreeProxySale_com(Provider):
+    domain = 'free.proxy-sale.com'
+
+    def find_proxies(self, page):
+        if not page:
+            return []
+        ip_list = json.loads(page)
+        return [ip.split(':') for ip in ip_list]
+
+    async def _pipe(self):
+        url = 'https://free.proxy-sale.com/api/front/main/proxy/export'
+        method = 'POST'
+        data = {
+            "captchaKey" : ""
+        }
+        hdrs = {"Accept": "application/json"}
+        await self._find_on_page(url, data, hdrs, method)
 
 
 class Proxylistplus_com(Provider):
@@ -665,6 +684,19 @@ class ProxyProvider(Provider):
 
 
 PROVIDERS = [
+    FreeProxySale_com(proto=('HTTP', 'HTTPS', 'SOCKS4', 'SOCKS5')),
+    Provider(
+        url='https://proxy-store.com/ru/free-proxy',
+        proto=('HTTP', 'HTTPS', 'SOCKS4', 'SOCKS5')
+    ),
+    Provider(
+        url='https://advanced.name/ru/freeproxy',
+        proto=('HTTP', 'HTTPS', 'SOCKS4', 'SOCKS5')
+    ),
+    Provider(
+        url='https://hidemy.io/ru/proxy-list/?type=hs#list',
+        proto=('HTTP', 'HTTPS', 'SOCKS4', 'SOCKS5')
+    ),
     Provider(
         url='https://api.proxyscrape.com/?request=getproxies&proxytype=http',
         proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
