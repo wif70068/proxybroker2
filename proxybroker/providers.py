@@ -756,15 +756,23 @@ PROVIDERS = [
     Freeproxy_world(),
     Provider(
         url='https://www.netzwelt.de/proxy/index.html',
-        proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
+        proto=('HTTP', 'HTTPS', 'SOCKS4', 'SOCKS5'),
     ),
     Provider(
         url='https://www.proxynova.com/proxy-server-list/',
+        proto=('HTTP', 'HTTPS', 'SOCKS4', 'SOCKS5'),
+    ),
+    Provider(
+        url='https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/socks5.txt',
+        proto=('SOCKS5'),
+    ),
+    Provider(
+        url='https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/http.txt',
         proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
     ),
     Provider(
-        url='https://spys.one/en/free-proxy-list/',
-        proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
+        url='https://www.experte.com/proxy-server',
+        proto=('HTTP', 'HTTPS', 'SOCKS4', 'SOCKS5'),
     ),
     # # Bad...
     # http://www.proxylist.ro/
