@@ -321,6 +321,7 @@ class Broker:
                 for pr in self._providers
                 if not types or not pr.proto or bool(pr.proto & types.keys())
             ]
+            random.shuffle(providers)
             while providers:
                 tasks = [
                     asyncio.ensure_future(pr.get_proxies()) for pr in providers[:by]

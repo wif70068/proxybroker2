@@ -628,7 +628,7 @@ class Proxyb_net(Provider):
             for p in range(0, 151)
         ]
         await self._find_on_pages(urls)
-    
+
 class FreeProxySale_com(Provider):
     domain = 'free.proxy-sale.com'
 
@@ -684,17 +684,12 @@ class ProxyProvider(Provider):
 
 
 PROVIDERS = [
-    FreeProxySale_com(proto=('HTTP', 'HTTPS', 'SOCKS4', 'SOCKS5')),
     Provider(
         url='https://proxy-store.com/ru/free-proxy',
         proto=('HTTP', 'HTTPS', 'SOCKS4', 'SOCKS5')
     ),
     Provider(
         url='https://advanced.name/ru/freeproxy',
-        proto=('HTTP', 'HTTPS', 'SOCKS4', 'SOCKS5')
-    ),
-    Provider(
-        url='https://hidemy.io/ru/proxy-list/?type=hs#list',
         proto=('HTTP', 'HTTPS', 'SOCKS4', 'SOCKS5')
     ),
     Provider(
