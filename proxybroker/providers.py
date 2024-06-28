@@ -192,10 +192,6 @@ class Blogspot_com_base(Provider):
 class Blogspot_com(Blogspot_com_base):
     domain = 'blogspot.com'
     domains = [
-        'sslproxies24.blogspot.com',
-        'proxyserverlist-24.blogspot.com',
-        'freeschoolproxy.blogspot.com',
-        'googleproxies24.blogspot.com',
     ]
 
 
@@ -670,10 +666,6 @@ class ProxyProvider(Provider):
 
 PROVIDERS = [
     Provider(
-        url='http://www.proxylists.net/',
-        proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
-    ),  # 49
-    Provider(
         url='https://api.proxyscrape.com/?request=getproxies&proxytype=http',
         proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
     ),  # added by ZerGo0
@@ -686,21 +678,9 @@ PROVIDERS = [
         proto=('SOCKS5'),
     ),  # added by ZerGo0
     Provider(
-        url='http://ipaddress.com/proxy-list/',
-        proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
-    ),  # 53
-    Provider(
         url='https://www.sslproxies.org/',
         proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
     ),  # 100
-    Provider(
-        url='https://freshfreeproxylist.wordpress.com/',
-        proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
-    ),  # 50
-    Provider(
-        url='http://proxytime.ru/http',
-        proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
-    ),  # 1400
     Provider(
         url='https://free-proxy-list.net/',
         proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
@@ -709,31 +689,11 @@ PROVIDERS = [
         url='https://us-proxy.org/',
         proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
     ),  # 200
-    Provider(
-        url='http://fineproxy.org/eng/fresh-proxies/',
-        proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
-    ),  # 5500
     Provider(url='https://socks-proxy.net/', proto=('SOCKS4', 'SOCKS5')),  # 80
     Provider(
         url='http://www.httptunnel.ge/ProxyListForFree.aspx',
         proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
     ),  # 200
-    Provider(
-        url='http://cn-proxy.com/',
-        proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
-    ),  # 70
-    Provider(
-        url='https://hugeproxies.com/home/',
-        proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
-    ),  # 800
-    Provider(
-        url='http://proxy.rufey.ru/',
-        proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
-    ),  # 153
-    Provider(
-        url='https://geekelectronics.org/my-servisy/proxy',
-        proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
-    ),  # 400
     Provider(
         url='http://pubproxy.com/api/proxy?limit=20&format=txt',
         proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
@@ -742,26 +702,8 @@ PROVIDERS = [
     Xseo_in(proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25')),  # noqa; 240
     Spys_ru(proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25')),  # noqa; 660
     Proxylistplus_com(proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25')),  # noqa; 450
-    Proxylist_me(proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25')),  # noqa; 2872
-    Foxtools_ru(
-        proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'), max_conn=1
-    ),  # noqa; 500
-    Gatherproxy_com(proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25')),  # noqa; 3212
-    Nntime_com(proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25')),  # noqa; 1050
-    Blogspot_com(proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25')),  # noqa; 24800
-    Gatherproxy_com_socks(proto=('SOCKS4', 'SOCKS5')),  # noqa; 30
-    Blogspot_com_socks(proto=('SOCKS4', 'SOCKS5')),  # noqa; 1486
-    Tools_rosinstrument_com(
-        proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25')
-    ),  # noqa; 4000
-    Tools_rosinstrument_com_socks(proto=('SOCKS4', 'SOCKS5')),  # noqa; 1800
     My_proxy_com(max_conn=2),  # noqa; 1000
-    Checkerproxy_net(),  # noqa; 60000
     Aliveproxy_com(),  # noqa; 210
-    Freeproxylists_com(),  # noqa; 1338
-    Webanetlabs_net(),  # noqa; 5000
-    Maxiproxies_com(),  # noqa; 430
-    Proxylist_download(),  # noqa; 35590
     # # Bad...
     # http://www.proxylist.ro/
     # Provider(url='http://proxydb.net/',
