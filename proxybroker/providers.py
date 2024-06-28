@@ -660,6 +660,17 @@ class Proxylistplus_com(Provider):
         ]
         await self._find_on_pages(urls)
 
+class Freeproxy_world(Provider):
+    domain = 'www.freeproxy.world'
+
+    async def _pipe(self):
+        names = ['Fresh-HTTP-Proxy', 'SSL', 'Socks']
+        urls = [
+            'https://www.freeproxy.world/?type=&anonymity=4&country=&speed=500&port=&page=%d' % (n)
+            for n in range(1, 20)
+        ]
+        await self._find_on_pages(urls)
+
 
 class Proxylist_download(Provider):
     domain = 'www.proxy-list.download'
@@ -673,6 +684,17 @@ class Proxylist_download(Provider):
         ]
         await self._find_on_pages(urls)
 
+class Geonode(Provider):
+    domain = 'geonode.com'
+
+    async def _pipe(self):
+        urls = [
+            'https://proxylist.geonode.com/api/proxy-list?protocols=http&limit=500&page=1&sort_by=lastChecked&sort_type=desc',
+            'https://proxylist.geonode.com/api/proxy-list?protocols=socks5&limit=500&page=1&sort_by=lastChecked&sort_type=desc',
+            'https://proxylist.geonode.com/api/proxy-list?protocols=socks5&limit=500&page=2&sort_by=lastChecked&sort_type=desc',
+            'https://proxylist.geonode.com/api/proxy-list?protocols=socks5&limit=500&page=3&sort_by=lastChecked&sort_type=desc',
+        ]
+        await self._find_on_pages(urls)
 
 class ProxyProvider(Provider):
     def __init__(self, *args, **kwargs):
@@ -726,11 +748,24 @@ PROVIDERS = [
         proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
     ),  # 20
     Proxy_list_org(proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25')),  # noqa; 140
-    Xseo_in(proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25')),  # noqa; 240
     Spys_ru(proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25')),  # noqa; 660
     Proxylistplus_com(proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25')),  # noqa; 450
     My_proxy_com(max_conn=2),  # noqa; 1000
     Aliveproxy_com(),  # noqa; 210
+    Geonode(),
+    Freeproxy_world(),
+    Provider(
+        url='https://www.netzwelt.de/proxy/index.html',
+        proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
+    ),
+    Provider(
+        url='https://www.proxynova.com/proxy-server-list/',
+        proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
+    ),
+    Provider(
+        url='https://spys.one/en/free-proxy-list/',
+        proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
+    ),
     # # Bad...
     # http://www.proxylist.ro/
     # Provider(url='http://proxydb.net/',
