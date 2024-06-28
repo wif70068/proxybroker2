@@ -31,13 +31,10 @@ class Resolver:
 
     _cached_hosts = {}
     _ip_hosts = [
-        'https://wtfismyip.com/text',
+        'http://ipinfo.io/ip',
+        'https://ipv4.wtfismyip.com/text',
         'http://api.ipify.org/',
-        'http://ipinfo.io/ip',
         'http://ipv4.icanhazip.com/',
-        'http://myexternalip.com/raw',
-        'http://ipinfo.io/ip',
-        'http://ifconfig.io/ip',
     ]
     # the list of resolvers will point a copy of original one
     _temp_host = []
