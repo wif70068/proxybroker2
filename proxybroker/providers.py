@@ -666,7 +666,7 @@ class Freeproxy_world(Provider):
     async def _pipe(self):
         names = ['Fresh-HTTP-Proxy', 'SSL', 'Socks']
         urls = [
-            'https://www.freeproxy.world/?type=&anonymity=4&country=&speed=500&port=&page=%d' % (n)
+            'https://www.freeproxy.world/?type=&anonymity=4&country=&speed=5000&port=&page=%d' % (n)
             for n in range(1, 20)
         ]
         await self._find_on_pages(urls)
@@ -761,14 +761,6 @@ PROVIDERS = [
     Provider(
         url='https://www.proxynova.com/proxy-server-list/',
         proto=('HTTP', 'HTTPS', 'SOCKS4', 'SOCKS5'),
-    ),
-    Provider(
-        url='https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/socks5.txt',
-        proto=('SOCKS5'),
-    ),
-    Provider(
-        url='https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/http.txt',
-        proto=('HTTP', 'CONNECT:80', 'HTTPS', 'CONNECT:25'),
     ),
     Provider(
         url='https://www.experte.com/proxy-server',
